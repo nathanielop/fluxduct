@@ -1,0 +1,3 @@
+#!/bin/sh
+
+exec node_modules/.bin/kiss-test 'src/**/*.test.js'
