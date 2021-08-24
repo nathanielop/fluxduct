@@ -1,6 +1,6 @@
 export default (dictionary, path) => {
-  if (!(path instanceof Array)) {
-    throw new Error(`Expected array for path, received "${path}".`);
+  if (!path || !(path instanceof Array)) {
+    throw new Error(`Expected array for path, received "${JSON.stringify(path)}".`);
   }
   let resolvedValue = dictionary;
   for (part of path) {
