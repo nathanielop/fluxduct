@@ -59,7 +59,7 @@ Parse returns a single value or an array of values providing there are multiple 
 
 **Any one of these variables can be substituted for a OR or IF condition, as shown below**
 
-> ADD (a OR b) AND (IF c THEN d ELSE e) -> A will be checked and used if non-null, if c is in [true, '1', 1] then d will be used, else e.
+> ADD (OR (a) (b)) AND (IF (c) (d) (e)) -> A will be checked and used if non-null, if c is in [true, '1', 1] then d will be used, else e.
 
 Parentheses are required in order for it to be checked
 
