@@ -1,4 +1,4 @@
-# Templator
+# Templator [![npm version](https://img.shields.io/npm/v/templatorjs.svg?style=flat)](https://www.npmjs.com/package/templatorjs)
 A simple templating language for JS
 
 ## Overview
