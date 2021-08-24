@@ -3,7 +3,7 @@ export default (dictionary, path) => {
     throw new Error(`Expected array for path, received "${path}".`);
   }
   let resolvedValue = dictionary;
-  for (i of path) {
+  for (i in path) {
     const newObj = resolvedValue[path[i]];
     if (!newObj) {
       throw new Error(`No value present in dictionary "${JSON.stringify(dictionary)}" for path "${JSON.stringify(path.slice(0, i))}".`);
