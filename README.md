@@ -67,22 +67,22 @@ Any variable above can be further nested with any combination of the operators a
 
 ## Errors
 
-### Invalid Parse Arguments (str is not a string)
+#### Invalid Parse Arguments (str is not a string)
 
 > "The second argument provided "{a json stringified version of the provided argument}", is not a string."
 
-### An expression does not start with a recognized conditional or operator
+#### An expression does not start with a recognized conditional or operator
 
 > "Invalid operator provided in expression "{provided expression}", expected one of "{string of available operators}"."
 
-### No key present in dictionary for a given expression
+#### No key present in dictionary for a given expression
 
 > "No key present in dictionary "{json stringified dictionary}" for variable key "{resolved variable key}"."
 
-### No key present in dictionary for an OR conditional
+#### No key present in dictionary for an OR conditional
 
 > "No keys present in dictionary "{json stringified dictionary}" for variable keys "{resolved variable key a}" or "{resolved variable key b}" in OR conditional "{provided expression}"."
 
-### No key present in dictionary for resolve variable key in IF conditional
+#### No key present in dictionary for resolve variable key in IF conditional
 
 > "No key present in dictionary "{json stringified dictionary}" for variable key "{resolved key to evaluate}" in IF conditional "{provided expression}"."
