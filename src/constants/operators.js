@@ -1,1 +1,1 @@
-export default new Set(['ADD', 'SUBTRACT', 'MULTIPLY', 'DIVIDE']);
+export default new Set(['add', 'subtract', 'multiply', 'divide']);

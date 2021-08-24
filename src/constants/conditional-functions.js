@@ -1,7 +1,3 @@
-import evaluateIf from '../functions/evaluate-if.js';
-import evaluateOr from '../functions/evaluate-or.js';
+import evaluateIf from '../functions/if.js';
 
-export default {
-  'IF': evaluateIf,
-  'OR': evaluateOr,
-}
+export default { if: evaluateIf }

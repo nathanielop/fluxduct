@@ -2,23 +2,24 @@ import operatorFunctions from '../constants/operator-functions.js';
 import operators from '../constants/operators.js';
 import conditionalFunctions from '../constants/conditional-functions.js';
 import conditionals from '../constants/conditionals.js';
-import findArguments from './find-arguments.js';
+import evaluatePath from './evaluate-path.js';
 
-export default (dictionary, expression) => {
-  expression = expression.trim();
-  const operator = expression.slice(0, expression.indexOf(' '));
-  const conditional = [...conditionals].find(conditional => expression.startsWith(conditional));
-  if (conditional) {
-    return conditionalFunctions[conditional](dictionary, expression);
+export default (dictionary, obj) => {
+  const conditional = Object.keys(obj).find(key => conditionals.has(key));
+  if (conditional) return conditionalFunctions[conditional](dictionary, obj[conditional]);
+
+  const operator = Object.keys(obj).find(key => operators.has(key));
+  if (operator) return operatorFunctions[operator](dictionary, obj[operator]);
+
+  if (!obj.path) {
+    throw new Error(`No path key present in argument "${JSON.stringify(obj)}".`);
   }
-  if (!operators.has(operator)) {
-    throw new Error(`Invalid operator provided in expression "${expression}", expected one of "${[...operators].join(', ')}".`);
+
+  const value = evaluatePath(dictionary, obj.path);
+
+  if (!value) {
+    throw new Error(`No value present in dictionary "${JSON.stringify(dictionary)}" for path "${JSON.stringify(obj.path)}".`);
   }
-  const [aKey, bKey] = findArguments(expression);
-  [aKey, bKey].map(key => {
-    if (!dictionary[key]) {
-      throw new Error(`No key present in dictionary "${JSON.stringify(dictionary)}" for variable key "${key}".`);
-    }
-  });
-  return operatorFunctions[operator](dictionary[aKey], dictionary[bKey]);
+
+  return value;
 }

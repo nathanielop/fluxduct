@@ -1,1 +1,1 @@
-export default (a, b) => evaluate(a) / evaluate(b);
+export default (dictionary, [a, b]) => evaluate(dictionary, a) / evaluate(dictionary, b);

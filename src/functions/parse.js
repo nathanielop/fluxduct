@@ -1,20 +1,14 @@
-import getExpressions from './get-expressions.js';
-import evaluate from './evaluate.js';
+import operatorFunctions from '../constants/operator-functions.js';
 
-export default ({ dictionary = {}, str = '' }) => {
-  if (!(str instanceof String)) {
-    throw new Error(`The second argument provided "${JSON.stringify(str)}", is not a string.`);
+export default ({ dictionary = {}, obj }) => {
+  if (!(obj instanceof Object)) {
+    throw new Error(`The second argument provided "${JSON.stringify(obj)}", is not an object.`);
   }
+  if (!Object.keys(obj).length) return null;
 
-  const expressionsDict = getExpressions(str);
-  const collapsedOperatorIndexes = Object.values(expressionsDict).flatMap(arr => arr);
-  const evaluatedExpressions = Object.entries(expressionsDict).reduce((arr, [operator, instances]) => {
-    if (!instances.length) return arr;
-    arr.concat(...instances.map(startIndex => {
-      const index = collapsedOperatorIndexes.indexOf(startIndex);
-      const next = collapsedOperatorIndexes[index + 1];
-      return evaluate(next ? str.slice(index, next) : str.slice(index));
-    }))
+  const evaluatedExpressions = Object.entries(obj).reduce((arr, [operator, args]) => {
+    if (!args.length) return arr;
+    arr.concat(operatorFunctions[operator](dictionary, args))
   }, []);
 
   if (!evaluatedExpressions.length) return null;

@@ -3,15 +3,13 @@ A simple templating language for JS
 
 ## Overview
 
-A compact, excel-esque, left-to-right, string parser with 4 basic operations (at the moment).
-
-Expressions are delimited by a following expression or by nothing at all, there is no need for a delimiter.
+A compact object parser with 4 basic operations (at the moment).
 
 ## Usage
 
 ### Input
 
-This package exports a single function, parse, which accepts two arguments; firstly, a dictionary of variables and their respective values, which will be expected to match the variable assignments passed in the string being parsed, secondly, the string to be parsed.
+This package exports a single function, parse, which accepts two arguments; firstly, a dictionary of variables and their respective values, which will be expected to match the paths passed in the object being parsed, secondly, the object to be parsed.
 
 ### Output
 
@@ -22,56 +20,54 @@ Parse returns a single value or an array of values providing there are multiple 
 ### Addition
 
 #### Simple
-> ADD (a) (b)
+> { add: [{ path: ['a'] }, { path: ['b'] }] }
 
 #### Nested
-> ADD (MULTIPLY (a) (b)) (b)
+> { add: [{ multiply: [{ path: ['a'] }, { path: ['b'] }] }, { path: ['b'] }] }
 
 <hr/>
 
 ### Subtraction
 
 #### Simple
-> SUBTRACT (a) (b)
+> { subtract: [{ path: ['a'] }, { path: ['b'] }] }
 
 #### Nested
-> SUBTRACT (ADD (a) (b)) (b)
+> { subtract: [{ multiply: [{ path: ['a'] }, { path: ['b'] }] }, { path: ['b'] }] }
 
 <hr/>
 
 ### Multiply
 
 #### Simple
-> MULTIPLY (a) (b)
+> { multiply: [{ path: ['a'] }, { path: ['b'] }] }
 
 #### Nested
-> MULTIPLY (SUBTRACT (a) (b)) (b)
+> { multiply: [{ add: [{ path: ['a'] }, { path: ['b'] }] }, { path: ['b'] }] }
 
 <hr/>
 
 ### Divide
 
 #### Simple
-> DIVIDE (a) (b)
+> { divide: [{ path: ['a'] }, { path: ['b'] }] }
 
 #### Nested
-> DIVIDE (ADD (a) (b)) (b)
+> { divide: [{ add: [{ path: ['a'] }, { path: ['b'] }] }, { path: ['b'] }] }
 
-**Any one of these variables can be substituted for a OR or IF condition, as shown below**
+**Any one of these variables can be substituted for a IF condition, as shown below**
 
-> ADD (OR (a) (b)) AND (IF (c) (d) (e)) -> A will be checked and used if non-null, if c is in [true, '1', 1] then d will be used, else e.
+> { add: [{ if: [{ path: ['a'] }, { path: ['b'] }, { path: ['c'] }] }, { path: ['d'] }] } -> If c is in [true, '1', 1] then b will be used, else c.
 
-Parentheses are required in order for it to be checked
-
-Any variable above can be further nested with any combination of the operators and IF/OR conditions
+Any variable above can be further nested with any combination of the operators and IF conditions
 
 ## Errors
 
-#### Invalid Parse Arguments (str is not a string)
+#### Invalid Parse Arguments (obj is not an object)
 
-> "The second argument provided "{a json stringified version of the provided argument}", is not a string."
+> "The second argument provided "{a json stringified version of the provided argument}", is not an object."
 
-#### An expression does not start with a recognized conditional or operator
+<!-- #### An expression does not start with a recognized conditional or operator
 
 > "Invalid operator provided in expression "{provided expression}", expected one of "{string of available operators}"."
 
@@ -85,4 +81,4 @@ Any variable above can be further nested with any combination of the operators a
 
 #### No key present in dictionary for resolve variable key in IF conditional
 
-> "No key present in dictionary "{json stringified dictionary}" for variable key "{resolved key to evaluate}" in IF conditional "{provided expression}"."
+> "No key present in dictionary "{json stringified dictionary}" for variable key "{resolved key to evaluate}" in IF conditional "{provided expression}"." -->

@@ -1,1 +1,1 @@
-export default new Set(['IF', 'OR']);
+export default new Set(['if']);

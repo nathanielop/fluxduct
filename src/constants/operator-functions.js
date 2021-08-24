@@ -4,8 +4,8 @@ import multiply from '../functions/multiply.js';
 import divide from '../functions/divide.js';
 
 export default {
-  'ADD': add,
-  'SUBTRACT': subtract,
-  'MULTIPLY': multiply,
-  'DIVIDE': divide
+  add: add,
+  subtract: subtract,
+  multiply: multiply,
+  divide: divide
 }
