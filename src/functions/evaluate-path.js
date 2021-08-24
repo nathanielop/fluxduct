@@ -5,7 +5,7 @@ export default (dictionary, path, expectedType = 'number') => {
   let resolvedValue = dictionary;
   for (const i in path) {
     const newObj = resolvedValue[path[i]];
-    if (!newObj) {
+    if (newObj == null) {
       throw new Error(`No value present in dictionary "${JSON.stringify(dictionary)}" for path "${path.slice(0, i).join('.')}".`);
     }
     resolvedValue = resolvedValue[path[i]];

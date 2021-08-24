@@ -1,7 +1,7 @@
 {
   "name": "templatorjs",
   "type": "module",
-  "version": "0.1.1",
+  "version": "0.2.1",
   "description": "A basic object parsing templating language",
   "main": "src/index.js",
   "module": "src/index.js",

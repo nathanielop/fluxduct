@@ -17,7 +17,7 @@ export default (dictionary, obj, expectedType) => {
 
   const value = evaluatePath(dictionary, obj.path, expectedType);
 
-  if (!value) {
+  if (value == null) {
     throw new Error(`No value present in dictionary "${JSON.stringify(dictionary)}" for path "${JSON.stringify(obj.path)}".`);
   }
 
