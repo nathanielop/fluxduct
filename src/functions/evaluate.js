@@ -4,7 +4,7 @@ import conditionalFunctions from '../constants/conditional-functions.js';
 import conditionals from '../constants/conditionals.js';
 import evaluatePath from './evaluate-path.js';
 
-export default (dictionary, obj, expectedType = 'number') => {
+export default (dictionary, obj, expectedType) => {
   const conditional = Object.keys(obj).find(key => conditionals.has(key));
   if (conditional) return conditionalFunctions[conditional](dictionary, obj[conditional]);
 
