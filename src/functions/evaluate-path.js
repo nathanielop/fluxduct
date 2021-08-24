@@ -11,7 +11,7 @@ export default (dictionary, path) => {
     resolvedValue = resolvedValue[path[i]];
   }
   if (typeof resolvedValue !== 'number') {
-    throw new Error(`Expected number value at path "${JSON.stringify(path.slice(0, i))}" in dictionary "${JSON.stringify(dictionary)}", received "${typeof resolvedValue}".`);
+    throw new Error(`Expected number value at path "${JSON.stringify(path)}" in dictionary "${JSON.stringify(dictionary)}", received "${typeof resolvedValue}".`);
   }
   return resolvedValue;
 }
