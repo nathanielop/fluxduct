@@ -21,18 +21,22 @@ Parse returns a single value or an array of values providing there are multiple 
 
 ### Addition
 > ADD (a) (b)
+*a more complex case*
 > ADD (MULTIPLY (a) (b)) (b)
 
 ### Subtraction
 > SUBTRACT (a) (b)
+*a more complex case*
 > SUBTRACT (ADD (a) (b)) (b)
 
 ### Multiply
 > MULTIPLY (a) (b)
+*a more complex case*
 > MULTIPLY (SUBTRACT (a) (b)) (b)
 
 ### Divide
 > DIVIDE (a) (b)
+*a more complex case*
 > DIVIDE (ADD (a) (b)) (b)
 
 **Any one of these variables can be substituted for a OR or IF condition, as shown below**
