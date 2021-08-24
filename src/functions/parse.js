@@ -1,6 +1,6 @@
 import operatorFunctions from '../constants/operator-functions.js';
 
-export default ({ dictionary = {}, obj }) => {
+export default (dictionary = {}, obj) => {
   if (!(obj instanceof Object)) {
     throw new Error(`The second argument provided "${JSON.stringify(obj)}", is not an object.`);
   }
