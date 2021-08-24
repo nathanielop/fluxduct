@@ -20,23 +20,41 @@ Parse returns a single value or an array of values providing there are multiple 
 ## Examples
 
 ### Addition
+
+#### Simple
 > ADD (a) (b)
-*a more complex case*
+
+#### Nested
 > ADD (MULTIPLY (a) (b)) (b)
 
+<hr/>
+
 ### Subtraction
+
+#### Simple
 > SUBTRACT (a) (b)
-*a more complex case*
+
+#### Nested
 > SUBTRACT (ADD (a) (b)) (b)
 
+<hr/>
+
 ### Multiply
+
+#### Simple
 > MULTIPLY (a) (b)
-*a more complex case*
+
+#### Nested
 > MULTIPLY (SUBTRACT (a) (b)) (b)
 
+<hr/>
+
 ### Divide
+
+#### Simple
 > DIVIDE (a) (b)
-*a more complex case*
+
+#### Nested
 > DIVIDE (ADD (a) (b)) (b)
 
 **Any one of these variables can be substituted for a OR or IF condition, as shown below**
