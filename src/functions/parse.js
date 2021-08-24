@@ -6,10 +6,7 @@ export default (dictionary = {}, obj) => {
   }
   if (!Object.keys(obj).length) return null;
 
-  const evaluatedExpressions = Object.entries(obj).reduce((arr, [operator, args]) => {
-    if (!args.length) return arr;
-    arr.concat(operatorFunctions[operator](dictionary, args))
-  }, []);
+  const evaluatedExpressions = Object.entries(obj).reduce((arr, [operator, args]) => (!args.length) ? arr : arr.concat(operatorFunctions[operator](dictionary, args)), []);
 
   if (!evaluatedExpressions.length) return null;
 
