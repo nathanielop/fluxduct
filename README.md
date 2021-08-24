@@ -67,18 +67,14 @@ Any variable above can be further nested with any combination of the operators a
 
 > "The second argument provided "{a json stringified version of the provided argument}", is not an object."
 
-<!-- #### An expression does not start with a recognized conditional or operator
+#### A final, resolved value as an argument in a operation does not have a path key
 
-> "Invalid operator provided in expression "{provided expression}", expected one of "{string of available operators}"."
+> "No path key present in argument "{a json stringified version of the provided argument}"."
 
-#### No key present in dictionary for a given expression
+#### No key present in dictionary for a given argument's path
 
-> "No key present in dictionary "{json stringified dictionary}" for variable key "{resolved variable key}"."
+> "No value present in dictionary "{json stringified dictionary}" for path "{json stringified path}"."
 
-#### No key present in dictionary for an OR conditional
+#### Resolved value in dictionary does not meet expected type
 
-> "No keys present in dictionary "{json stringified dictionary}" for variable keys "{resolved variable key a}" or "{resolved variable key b}" in OR conditional "{provided expression}"."
-
-#### No key present in dictionary for resolve variable key in IF conditional
-
-> "No key present in dictionary "{json stringified dictionary}" for variable key "{resolved key to evaluate}" in IF conditional "{provided expression}"." -->
+> "Expected {expectedType, defaulted to number} value at path "{json stringified path}" in dictionary "{json stringified dictionary}", received "{typeof resolvedValue}"."
