@@ -8,7 +8,7 @@ export default (dictionary, path) => {
     if (!newObj) {
       throw new Error(`No value present in dictionary "${JSON.stringify(dictionary)}" for path "${JSON.stringify(path.slice(0, i))}".`);
     }
-    resolvedValue = resolvedValue[part[i]];
+    resolvedValue = resolvedValue[path[i]];
   }
   if (typeof resolvedValue !== 'number') {
     throw new Error(`Expected number value at path "${JSON.stringify(path.slice(0, i))}" in dictionary "${JSON.stringify(dictionary)}", received "${typeof resolvedValue}".`);
