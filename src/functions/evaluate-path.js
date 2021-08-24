@@ -1,4 +1,4 @@
-export default (dictionary, path, expectedType = 'number') => {
+export default (dictionary, path, expectedType) => {
   if (!path || !(path instanceof Array)) {
     throw new Error(`Expected array for path, received "${JSON.stringify(path)}".`);
   }
