@@ -57,7 +57,7 @@ Parse returns a single value or an array of values providing there are multiple 
 
 **Any one of these variables can be substituted for a IF condition, as shown below**
 
-> { add: [{ if: [{ path: ['a'] }, { path: ['b'] }, { path: ['c'] }] }, { path: ['d'] }] } -> If c is in [true, '1', 1] then b will be used, else c.
+> { add: [{ if: [{ path: ['a'] }, { path: ['b'] }, { path: ['c'] }] }, { path: ['d'] }] } -> If c is a boolean of value true then b will be used, else c.
 
 Any variable above can be further nested with any combination of the operators and IF conditions
 
