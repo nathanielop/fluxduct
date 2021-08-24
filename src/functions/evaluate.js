@@ -11,6 +11,8 @@ export default (dictionary, obj, expectedType) => {
   const operator = Object.keys(obj).find(key => operators.has(key));
   if (operator) return operatorFunctions[operator](dictionary, obj[operator]);
 
+  if (obj.value && typeof obj.value === 'number') return obj.value;
+
   if (!obj.path) {
     throw new Error(`No path key present in argument "${JSON.stringify(obj)}".`);
   }
