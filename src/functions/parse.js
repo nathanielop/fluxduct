@@ -3,7 +3,7 @@ import evaluate from './evaluate.js';
 
 export default ({ dictionary = {}, str = '' }) => {
   if (!(str instanceof String)) {
-    throw new Error(`The second argument provided ${JSON.stringify(str)}, is not a string.`);
+    throw new Error(`The second argument provided "${JSON.stringify(str)}", is not a string.`);
   }
 
   const expressionsDict = getExpressions(str);

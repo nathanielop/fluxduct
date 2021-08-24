@@ -12,12 +12,12 @@ export default (dictionary, expression) => {
     return conditionalFunctions[conditional](dictionary, expression);
   }
   if (!operators.has(operator)) {
-    throw new Error(`Invalid operator provided in expression "${expression}", expected one of ${[...operators].join(', ')}.`);
+    throw new Error(`Invalid operator provided in expression "${expression}", expected one of "${[...operators].join(', ')}".`);
   }
   const [aKey, bKey] = findArguments(expression);
   [aKey, bKey].map(key => {
     if (!dictionary[key]) {
-      throw new Error(`No key present in dictionary ${JSON.stringify(dictionary)} for variable key "${key}".`);
+      throw new Error(`No key present in dictionary "${JSON.stringify(dictionary)}" for variable key "${key}".`);
     }
   });
   return operatorFunctions[operator](dictionary[aKey], dictionary[bKey]);
