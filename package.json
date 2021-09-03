@@ -1,21 +1,21 @@
 {
-  "name": "templatorjs",
+  "name": "fluxduct",
   "type": "module",
   "version": "0.3.0",
-  "description": "A basic object parsing templating language",
+  "description": "A low-level JSON-safe programming language",
   "main": "src/index.js",
   "module": "src/index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nathanielop/templator.git"
+    "url": "git+https://github.com/nathanielop/fluxduct.git"
   },
   "author": "Nathaniel Pendy",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/nathanielop/templator/issues"
+    "url": "https://github.com/nathanielop/fluxduct/issues"
   },
   "devDependencies": {
     "kiss-test": "0.2"
   },
-  "homepage": "https://github.com/nathanielop/templator#readme"
+  "homepage": "https://github.com/nathanielop/fluxduct#readme"
 }
