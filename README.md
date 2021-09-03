@@ -1,17 +1,17 @@
-# Templator [![npm version](https://img.shields.io/npm/v/templatorjs.svg?style=flat)](https://www.npmjs.com/package/templatorjs)
-A simple templating language for JS
+# Fluxduct [![npm version](https://img.shields.io/npm/v/templatorjs.svg?style=flat)](https://www.npmjs.com/package/templatorjs)
+A basic JSON-safe programming language
 
 ## Overview
 
-A compact object parser with 4 basic operations (at the moment).
+A compact object format programming language with 4 basic operations (at the moment).
 
 ## Use Case
 
-Let's say you have an API, and you're looking for a method by which you can increase performance of your app via doing transformations of the data directly in the API. In this scenario, you would middleman the API returned data through a Templator parser in order to get the data in the format you would like. An important distinction to be made here is that you are *not* changing the raw output of your API, but rather defining explicit values which you would like back in the app. 
+Let's say you have an API, and you're looking for a method by which you can increase performance of your app via doing transformations of the data directly in the API. In this scenario, you would middleman the API returned data through a Fluxduct parser in order to get the data in the format you would like. An important distinction to be made here is that you are *not* changing the raw output of your API, but rather defining explicit values which you would like back in the app. 
 
 These values are much more versatile than a pure API response as well, as they can be compounded with operators and conditionals to return computed values not otherwise returned in your API. Even more, the number of fields is completely up to you! If you only want 3 fields, foo, bar, and baz, on an API endpoint that returns more than just those 3 fields, you can explicitly only request those fields back.
 
-As icing on the cake; Templator is made from plain javascript, which allows for implementation either server-side or client-side.
+As icing on the cake; Fluxduct is made from plain javascript, which allows for implementation either server-side or client-side.
 
 ## Usage
 
