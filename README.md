@@ -1,4 +1,4 @@
-# Fluxduct [![npm version](https://img.shields.io/npm/v/templatorjs.svg?style=flat)](https://www.npmjs.com/package/templatorjs)
+# Fluxduct [![npm version](https://img.shields.io/npm/v/fluxduct.svg?style=flat)](https://www.npmjs.com/package/fluxduct)
 A basic JSON-safe programming language
 
 ## Overview
