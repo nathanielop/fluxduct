@@ -3,7 +3,7 @@ A basic JSON-safe programming language
 
 ## Overview
 
-A compact object format programming language with 4 basic operations (at the moment).
+A compact object format programming language with 10 basic operations (at the moment).
 
 ## Use Case
 
@@ -24,6 +24,9 @@ This package exports a single function, parse, which accepts two arguments; firs
 Parse returns a single value or an array of values providing there are multiple expressions provided.
 
 ## Examples
+
+* Note:
+* Examples do not include additional operators added in >0.5.0 (or, and, concat, power, equal)
 
 ### Addition
 
