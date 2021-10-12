@@ -1,8 +1,8 @@
 import FluxductError from '../constants/fluxduct-error.js';
 
-export default (dictionary, path, expectedType = 'number') => {
+export default (dictionary, path) => {
   const throwError = type => {
-    throw new FluxductError(type, { dictionary, path, expectedType });
+    throw new FluxductError(type, { dictionary, path });
   }
 
   if (!path || !(path instanceof Array)) throwError('expectedArray');
@@ -13,8 +13,6 @@ export default (dictionary, path, expectedType = 'number') => {
     if (newObj == null) throwError('missingDictionaryValue');
     resolvedValue = resolvedValue[path[i]];
   }
-  
-  if (typeof resolvedValue !== expectedType) throwError('expectedTypeMismatch');
 
   return resolvedValue;
 }

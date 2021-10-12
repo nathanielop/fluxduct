@@ -3,7 +3,7 @@ import FluxductError from '../constants/fluxduct-error.js';
 
 export default (dictionary = {}, obj) => {
   const throwError = type => {
-    throw new FluxductError(type, { dictionary, path, expectedType });
+    throw new FluxductError(type, { dictionary, obj });
   }
 
   if (!(obj instanceof Object)) throwError('expectedObject');
