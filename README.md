@@ -11,7 +11,7 @@ Let's say you have an API, and you're looking for a method by which you can incr
 
 These values are much more versatile than a pure API response as well, as they can be compounded with operators and conditionals to return computed values not otherwise returned in your API. Even more, the number of fields is completely up to you! If you only want 3 fields, foo, bar, and baz, on an API endpoint that returns more than just those 3 fields, you can explicitly only request those fields back.
 
-As icing on the cake; Fluxduct is made from plain javascript, which allows for implementation either server-side or client-side.
+As icing on the cake; Fluxduct is made from plain javascript, which allows for implementation either server-side or client-side, on top of this, Fluxduct is JSON-safe, meaning all transformations can exist as JSON, making these transformations able to be stored in most databases without the need for any additional transformations.
 
 ## Usage
 
