@@ -1,7 +1,7 @@
 {
   "name": "fluxduct",
   "type": "module",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "description": "A low-level JSON-safe programming language",
   "main": "src/index.js",
   "module": "src/index.js",
