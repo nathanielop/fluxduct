@@ -2,7 +2,7 @@ import operators from '../constants/operators.js';
 import FluxductError from '../constants/fluxduct-error.js';
 
 const validate = obj => {
-  const operator = Object.keys(obj).find(key => operators.has(key));
+  const operator = Object.keys(obj).find(key => operators[key]);
   if (operator) {
     for (const arg of obj[operator]) validate(arg);
     return;
