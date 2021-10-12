@@ -1,27 +1,20 @@
-import operatorFunctions from '../constants/operator-functions.js';
 import operators from '../constants/operators.js';
-import conditionalFunctions from '../constants/conditional-functions.js';
-import conditionals from '../constants/conditionals.js';
+import FluxductError from '../constants/fluxduct-error.js';
 import evaluatePath from './evaluate-path.js';
 
-export default (dictionary, obj, expectedType) => {
-  const conditional = Object.keys(obj).find(key => conditionals.has(key));
-  if (conditional) return conditionalFunctions[conditional](dictionary, obj[conditional]);
+export default (dictionary, obj) => {
+  const throwError = type => {
+    throw new FluxductError(type, { dictionary, obj });
+  }
 
-  const operator = Object.keys(obj).find(key => operators.has(key));
-  if (operator) return operatorFunctions[operator](dictionary, obj[operator]);
+  const operator = Object.keys(obj).find(key => operators[key]);
 
+  if (operator) return operators[operator](dictionary, obj[operator]);
   if (obj.value && typeof obj.value === 'number') return obj.value;
+  if (!obj.path) throwError('missingPathKey');
 
-  if (!obj.path) {
-    throw new Error(`No path key present in argument "${JSON.stringify(obj)}".`);
-  }
-
-  const value = evaluatePath(dictionary, obj.path, expectedType);
-
-  if (value == null) {
-    throw new Error(`No value present in dictionary "${JSON.stringify(dictionary)}" for path "${JSON.stringify(obj.path)}".`);
-  }
+  const value = evaluatePath(dictionary, obj.path);
+  if (value == null) throwError('missingDictionaryValue');
 
   return value;
 }
