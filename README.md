@@ -72,8 +72,7 @@ Parse returns a single value or an array of values providing there are multiple 
 Any variable above can be further nested with any combination of the operators and IF conditions
 
 ## Errors
-
-> **WARNING**: These errors are outdated and no longer valid examples of Fluxduct errors as of 0.5.0!
+## (Warning: This section is invalid as of 0.5.0)
 
 #### Invalid Parse Arguments (obj is not an object)
 
