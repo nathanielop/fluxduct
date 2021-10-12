@@ -1,12 +1,15 @@
-import operatorFunctions from '../constants/operator-functions.js';
+import operators from '../constants/operators.js';
+import FluxductError from '../constants/fluxduct-error.js';
 
 export default (dictionary = {}, obj) => {
-  if (!(obj instanceof Object)) {
-    throw new Error(`The second argument provided "${JSON.stringify(obj)}", is not an object.`);
+  const throwError = type => {
+    throw new FluxductError(type, { dictionary, path, expectedType });
   }
+
+  if (!(obj instanceof Object)) throwError('expectedObject');
   if (!Object.keys(obj).length) return null;
 
-  const evaluatedExpressions = Object.entries(obj).reduce((arr, [operator, args]) => (!args.length) ? arr : arr.concat(operatorFunctions[operator](dictionary, args)), []);
+  const evaluatedExpressions = Object.entries(obj).reduce((arr, [operator, args]) => (!args.length) ? arr : arr.concat(operators[operator](dictionary, args)), []);
 
   if (!evaluatedExpressions.length) return null;
 
